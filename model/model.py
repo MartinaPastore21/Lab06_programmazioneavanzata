@@ -25,7 +25,7 @@ class DepositoStrumenti:
         self._nome = nome
 
     @property
-    def responsable(self):
+    def responsabile(self):
         return self._responsabile
 
     @responsabile.setter
@@ -66,7 +66,6 @@ class DepositoStrumenti:
                    WHERE strumento.tipo LIKE %s"""
         if cnx is not None:
             cursor = cnx.cursor(dictionary=True)
-            # Utilizziamo i wildcard per una ricerca flessibile o l'uguaglianza esatta
             cursor.execute(query, (f"%{tipo}%",))
             for row in cursor:
                 result.append(
